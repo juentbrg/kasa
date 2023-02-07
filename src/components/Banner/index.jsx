@@ -9,6 +9,7 @@ const StyledBanner = styled.div`
   margin-top: 10px;
   border-radius: 10px;
   position: relative;
+  ${(props) => props.About && `height: 223px;`}
 `
 
 const StyledImage = styled.img`
@@ -17,6 +18,7 @@ const StyledImage = styled.img`
   object-fit: cover;
   border-radius: 10px;
   filter: brightness(0.7);
+  ${(props) => props.About && `height: 223px;`}
 `
 
 const StyledTitle = styled.h1`
@@ -35,12 +37,12 @@ const Banner = () => {
   const homePage = location.pathname === '/'
 
   return (
-    <StyledBanner>
-      {homePage ? (
-        <StyledImage src={homeCover} alt="home-cover" />
-      ) : (
-        <StyledImage src={aboutCover} alt="about-cover" />
-      )}
+    <StyledBanner About={!homePage}>
+      <StyledImage
+        src={homePage ? homeCover : aboutCover}
+        alt={homePage ? 'home-cover' : 'about-cover'}
+        About={!homePage}
+      />
       {homePage && <StyledTitle>Chez vous, partout et ailleurs</StyledTitle>}
     </StyledBanner>
   )
