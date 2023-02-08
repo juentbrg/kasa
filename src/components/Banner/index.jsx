@@ -6,7 +6,7 @@ import aboutCover from '../../assets/about_cover.png'
 const StyledBanner = styled.div`
   width: 100%;
   height: 111px;
-  margin-top: 10px;
+  margin-top: 20px;
   border-radius: 10px;
   position: relative;
   ${(props) => props.About && `height: 223px;`}

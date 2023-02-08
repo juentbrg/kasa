@@ -20,7 +20,7 @@ const StyledLogo = styled.img`
 const StyledLink = styled(Link)`
   color: ${colors.primary};
   font-size: 12px;
-  font-weight: 50O;
+  font-weight: 500;
   &:not(:last-child) {
     margin-right: 10px;
   }
