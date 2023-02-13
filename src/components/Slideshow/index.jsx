@@ -61,11 +61,11 @@ const Slideshow = ({ imageUrl }) => {
   let [currentIndex, setCurrentIndex] = useState(0)
 
   const goLeft = () => {
-    currentIndex === 0 ? setCurrentIndex(4) : setCurrentIndex(currentIndex - 1)
+    setCurrentIndex(currentIndex === 0 ? imageUrl.length - 1 : currentIndex - 1)
   }
 
   const goRight = () => {
-    currentIndex === 4 ? setCurrentIndex(0) : setCurrentIndex(currentIndex + 1)
+    setCurrentIndex(currentIndex === imageUrl.length - 1 ? 0 : currentIndex + 1)
   }
 
   return (
