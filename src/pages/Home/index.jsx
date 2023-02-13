@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Banner from '../../components/Banner'
 import accommodationList from '../../datas/accommodationList'
-import Accommodation from '../../components/Accommodation'
+import Gallery from '../../components/Gallery'
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ const Home = () => {
       <StyledContainer>
         {accommodationList.map(({ id, cover, title }) => (
           <StyledCard key={id}>
-            <Accommodation cover={cover} title={title} />
+            <Gallery id={id} cover={cover} title={title} />
           </StyledCard>
         ))}
       </StyledContainer>

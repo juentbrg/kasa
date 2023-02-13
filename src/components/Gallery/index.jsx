@@ -33,13 +33,13 @@ const StyledTitle = styled.h3`
   left: 20px;
 `
 
-const Accommodation = ({ id, cover, title }) => {
+const Gallery = ({ id, cover, title }) => {
   return (
-    <StyledContainer to="*">
+    <StyledContainer to={id ? `/accommodation/${id}` : '/'}>
       <StyledImage src={cover} alt={`${title} cover`} />
       <StyledTitle>{title}</StyledTitle>
     </StyledContainer>
   )
 }
 
-export default Accommodation
+export default Gallery
