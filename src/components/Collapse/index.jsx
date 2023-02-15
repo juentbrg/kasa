@@ -6,6 +6,9 @@ import colors from '../../utils/colors'
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
 `
 
 const StyledCollapse = styled.div`
@@ -33,10 +36,11 @@ const StyledTitle = styled.p`
   font-size: 13px;
 `
 
-const StyledParagraphOpen = styled.p`
+const StyledParagraphOpen = styled.div`
   font-weight: 400;
   font-size: 12px;
   color: ${colors.primary};
+  line-height: 142.6%;
 `
 
 const StyledArrow = styled.img`

@@ -51,7 +51,7 @@ const Bullet = styled.div`
   height: 10px;
   width: 10px;
   border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
   background-color: ${({ active }) => (active ? '#ffffff' : '#F2F2F2')};
   margin: 0 10px;
   cursor: pointer;

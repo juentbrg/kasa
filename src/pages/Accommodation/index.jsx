@@ -1,8 +1,15 @@
 import { useParams } from 'react-router-dom'
 import Slideshow from '../../components/Slideshow'
+import Ratings from '../../components/Ratings'
+import Collapse from '../../components/Collapse'
 import accommodationList from '../../datas/accommodationList'
 import colors from '../../utils/colors'
 import styled from 'styled-components'
+
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+`
 
 const Title = styled.h1`
   color: ${colors.primary};
@@ -37,6 +44,78 @@ const Tags = styled.div`
   }
 `
 
+const StarAndUser = styled.div`
+  margin: 16px 0;
+  height: 33px;
+  align-items: center;
+  display: flex;
+  flex-direction: raw;
+  justify-content: space-between;
+`
+
+const User = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const UserNameContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+`
+
+const UserName = styled.p`
+  color: ${colors.primary};
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 10.5px;
+  white-space: pre-wrap;
+`
+
+const HostName = ({ name }) => {
+  const [firstName, lastName] = name.split(' ')
+  return (
+    <>
+      <UserName>{firstName}</UserName>
+      <UserName>{lastName}</UserName>
+    </>
+  )
+}
+
+const UserPic = styled.img`
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+`
+
+const CollapseContainer = styled.div`
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+`
+
+const EquipmentsListContainer = styled.ul`
+  line-height: 142.6%;
+`
+
+const EquipmentsList = styled.li`
+  list-style-type: none;
+`
+
+const Equipments = ({ equipments }) => {
+  return (
+    <EquipmentsListContainer>
+      {equipments.map((e) => (
+        <EquipmentsList key={e}>{e}</EquipmentsList>
+      ))}
+    </EquipmentsListContainer>
+  )
+}
+
 const Accommodation = () => {
   let accommodationId = useParams().id
   const accommodation = accommodationList.find(
@@ -47,13 +126,37 @@ const Accommodation = () => {
   return (
     <main>
       <Slideshow imageUrl={slides} />
-      <Title>{accommodation.title}</Title>
-      <Location>{accommodation.location}</Location>
-      <TagsContainer>
-        {accommodation.tags.map((tag) => (
-          <Tags key={tag}>{tag}</Tags>
-        ))}
-      </TagsContainer>
+      <Section>
+        <Title>{accommodation.title}</Title>
+        <Location>{accommodation.location}</Location>
+        <TagsContainer>
+          {accommodation.tags.map((tag) => (
+            <Tags key={tag}>{tag}</Tags>
+          ))}
+        </TagsContainer>
+        <StarAndUser>
+          <Ratings rating={accommodation.rating} />
+          <User>
+            <UserNameContainer>
+              <HostName name={accommodation.host.name} />
+            </UserNameContainer>
+            <UserPic
+              src={accommodation.host.picture}
+              alt={accommodation.host.name}
+            />
+          </User>
+        </StarAndUser>
+        <CollapseContainer>
+          <Collapse
+            title="Description"
+            description={accommodation.description}
+          />
+          <Collapse
+            title="Équipements"
+            description={<Equipments equipments={accommodation.equipments} />}
+          />
+        </CollapseContainer>
+      </Section>
     </main>
   )
 }
