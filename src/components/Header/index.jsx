@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useState } from 'react'
 import styled from 'styled-components'
 import colors from '../../utils/colors'
 import logo from '../../assets/logo.svg'
@@ -33,11 +32,6 @@ const StyledLink = styled(Link)`
 
 const Header = () => {
   const location = useLocation()
-  const [activePage, setActivePage] = useState(location.pathname)
-
-  const handleLinkClick = (event) => {
-    setActivePage(event.currentTarget.getAttribute('to'))
-  }
 
   return (
     <StyledContainer>
@@ -48,14 +42,12 @@ const Header = () => {
         <StyledLink
           to="/"
           className={location.pathname === '/' ? 'activeLink' : ''}
-          onClick={handleLinkClick}
         >
           ACCUEIL
         </StyledLink>
         <StyledLink
           to="/about"
           className={location.pathname === '/about' ? 'activeLink' : ''}
-          onClick={handleLinkClick}
         >
           À PROPOS
         </StyledLink>

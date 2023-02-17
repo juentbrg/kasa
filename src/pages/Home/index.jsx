@@ -2,6 +2,11 @@ import styled from 'styled-components'
 import Banner from '../../components/Banner'
 import accommodationList from '../../datas/accommodationList'
 import Gallery from '../../components/Gallery'
+import Footer from '../../components/Footer'
+
+const Main = styled.main`
+  min-height: calc(100vh - 269.5px);
+`
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -19,15 +24,18 @@ const StyledCard = styled.div`
 
 const Home = () => {
   return (
-    <div className="App">
-      <Banner />
-      <StyledContainer>
-        {accommodationList.map(({ id, cover, title }) => (
-          <StyledCard key={id}>
-            <Gallery id={id} cover={cover} title={title} />
-          </StyledCard>
-        ))}
-      </StyledContainer>
+    <div>
+      <Main>
+        <Banner />
+        <StyledContainer>
+          {accommodationList.map(({ id, cover, title }) => (
+            <StyledCard key={id}>
+              <Gallery id={id} cover={cover} title={title} />
+            </StyledCard>
+          ))}
+        </StyledContainer>
+      </Main>
+      <Footer />
     </div>
   )
 }

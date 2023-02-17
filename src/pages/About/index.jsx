@@ -1,6 +1,11 @@
 import Banner from '../../components/Banner'
 import Collapse from '../../components/Collapse'
 import styled from 'styled-components'
+import Footer from '../../components/Footer'
+
+const Main = styled.main`
+  min-height: calc(100vh - 269.5px);
+`
 
 const StyledContainer = styled.div`
   margin: 19px 0;
@@ -42,14 +47,17 @@ const About = () => {
 
   return (
     <div>
-      <Banner />
-      <StyledContainer>
-        {information.map(({ id, title, description }) => (
-          <StyledCollapseContainer key={id}>
-            <Collapse title={title} description={description} />
-          </StyledCollapseContainer>
-        ))}
-      </StyledContainer>
+      <Main>
+        <Banner />
+        <StyledContainer>
+          {information.map(({ id, title, description }) => (
+            <StyledCollapseContainer key={id}>
+              <Collapse title={title} description={description} />
+            </StyledCollapseContainer>
+          ))}
+        </StyledContainer>
+      </Main>
+      <Footer />
     </div>
   )
 }

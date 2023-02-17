@@ -4,7 +4,7 @@ import colors from '../../utils/colors'
 
 const StyledContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   text-align: center;
 `
 

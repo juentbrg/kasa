@@ -5,6 +5,11 @@ import Collapse from '../../components/Collapse'
 import accommodationList from '../../datas/accommodationList'
 import colors from '../../utils/colors'
 import styled from 'styled-components'
+import Footer from '../../components/Footer'
+
+const Main = styled.main`
+  min-height: calc(100vh - 274.5px);
+`
 
 const Section = styled.section`
   display: flex;
@@ -124,40 +129,43 @@ const Accommodation = () => {
   const slides = accommodation.pictures.map((picture) => ({ url: picture }))
 
   return (
-    <main>
-      <Slideshow imageUrl={slides} />
-      <Section>
-        <Title>{accommodation.title}</Title>
-        <Location>{accommodation.location}</Location>
-        <TagsContainer>
-          {accommodation.tags.map((tag) => (
-            <Tags key={tag}>{tag}</Tags>
-          ))}
-        </TagsContainer>
-        <StarAndUser>
-          <Ratings rating={accommodation.rating} />
-          <User>
-            <UserNameContainer>
-              <HostName name={accommodation.host.name} />
-            </UserNameContainer>
-            <UserPic
-              src={accommodation.host.picture}
-              alt={accommodation.host.name}
+    <div>
+      <Main>
+        <Slideshow imageUrl={slides} />
+        <Section>
+          <Title>{accommodation.title}</Title>
+          <Location>{accommodation.location}</Location>
+          <TagsContainer>
+            {accommodation.tags.map((tag) => (
+              <Tags key={tag}>{tag}</Tags>
+            ))}
+          </TagsContainer>
+          <StarAndUser>
+            <Ratings rating={accommodation.rating} />
+            <User>
+              <UserNameContainer>
+                <HostName name={accommodation.host.name} />
+              </UserNameContainer>
+              <UserPic
+                src={accommodation.host.picture}
+                alt={accommodation.host.name}
+              />
+            </User>
+          </StarAndUser>
+          <CollapseContainer>
+            <Collapse
+              title="Description"
+              description={accommodation.description}
             />
-          </User>
-        </StarAndUser>
-        <CollapseContainer>
-          <Collapse
-            title="Description"
-            description={accommodation.description}
-          />
-          <Collapse
-            title="Équipements"
-            description={<Equipments equipments={accommodation.equipments} />}
-          />
-        </CollapseContainer>
-      </Section>
-    </main>
+            <Collapse
+              title="Équipements"
+              description={<Equipments equipments={accommodation.equipments} />}
+            />
+          </CollapseContainer>
+        </Section>
+      </Main>
+      <Footer />
+    </div>
   )
 }
 
