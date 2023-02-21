@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import Slideshow from '../../components/Slideshow'
 import Ratings from '../../components/Ratings'
 import Collapse from '../../components/Collapse'
@@ -126,47 +127,61 @@ const Accommodation = () => {
   const accommodation = accommodationList.find(
     ({ id }) => id === accommodationId
   )
-  const slides = accommodation.pictures.map((picture) => ({ url: picture }))
 
-  return (
-    <div>
-      <Main>
-        <Slideshow imageUrl={slides} />
-        <Section>
-          <Title>{accommodation.title}</Title>
-          <Location>{accommodation.location}</Location>
-          <TagsContainer>
-            {accommodation.tags.map((tag) => (
-              <Tags key={tag}>{tag}</Tags>
-            ))}
-          </TagsContainer>
-          <StarAndUser>
-            <Ratings rating={accommodation.rating} />
-            <User>
-              <UserNameContainer>
-                <HostName name={accommodation.host.name} />
-              </UserNameContainer>
-              <UserPic
-                src={accommodation.host.picture}
-                alt={accommodation.host.name}
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (!accommodation) {
+      navigate('/error')
+    }
+  }, [accommodation, navigate])
+
+  try {
+    const slides = accommodation.pictures.map((picture) => ({ url: picture }))
+
+    return (
+      <div>
+        <Main>
+          <Slideshow imageUrl={slides} />
+          <Section>
+            <Title>{accommodation.title}</Title>
+            <Location>{accommodation.location}</Location>
+            <TagsContainer>
+              {accommodation.tags.map((tag) => (
+                <Tags key={tag}>{tag}</Tags>
+              ))}
+            </TagsContainer>
+            <StarAndUser>
+              <Ratings rating={accommodation.rating} />
+              <User>
+                <UserNameContainer>
+                  <HostName name={accommodation.host.name} />
+                </UserNameContainer>
+                <UserPic
+                  src={accommodation.host.picture}
+                  alt={accommodation.host.name}
+                />
+              </User>
+            </StarAndUser>
+            <CollapseContainer>
+              <Collapse
+                title="Description"
+                description={accommodation.description}
               />
-            </User>
-          </StarAndUser>
-          <CollapseContainer>
-            <Collapse
-              title="Description"
-              description={accommodation.description}
-            />
-            <Collapse
-              title="Équipements"
-              description={<Equipments equipments={accommodation.equipments} />}
-            />
-          </CollapseContainer>
-        </Section>
-      </Main>
-      <Footer />
-    </div>
-  )
+              <Collapse
+                title="Équipements"
+                description={
+                  <Equipments equipments={accommodation.equipments} />
+                }
+              />
+            </CollapseContainer>
+          </Section>
+        </Main>
+        <Footer />
+      </div>
+    )
+  } catch {
+    console.log('Accomodation not found')
+  }
 }
 
 export default Accommodation
