@@ -9,6 +9,11 @@ const StyledContainer = styled.div`
   &:not(:last-child) {
     margin-bottom: 20px;
   }
+  @media all and (min-width: 1100px) {
+    &:not(:last-child) {
+      margin-bottom: 33px;
+    }
+  }
 `
 
 const StyledCollapse = styled.div`
@@ -20,6 +25,10 @@ const StyledCollapse = styled.div`
   justify-content: space-between;
   z-index: 1;
   padding: 0 18px;
+  cursor: pointer;
+  @media all and (min-width: 1100px) {
+    height: 47px;
+  }
 `
 
 const StyledColapseOpen = styled.div`
@@ -28,12 +37,18 @@ const StyledColapseOpen = styled.div`
   margin-top: -10px;
   padding: 25px 18px 10px 18px;
   z-index: 0;
+  @media all and (min-width: 1100px) {
+    padding: 36px 27px 19px 18px;
+  }
 `
 
 const StyledTitle = styled.p`
   color: #ffffff;
   font-weight: 500;
   font-size: 13px;
+  @media all and (min-width: 1100px) {
+    font-size: 24px;
+  }
 `
 
 const StyledParagraphOpen = styled.div`
@@ -41,6 +56,9 @@ const StyledParagraphOpen = styled.div`
   font-size: 12px;
   color: ${colors.primary};
   line-height: 142.6%;
+  @media all and (min-width: 1100px) {
+    font-size: 24px;
+  }
 `
 
 const StyledArrow = styled.img`

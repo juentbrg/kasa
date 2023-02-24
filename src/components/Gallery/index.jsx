@@ -10,6 +10,10 @@ const StyledContainer = styled(Link)`
   background: ${colors.gradiantPrimary};
   position: relative;
   overflow: hidden;
+  @media all and (min-width: 1100px) {
+    height: 340px;
+    width: 340px;
+  }
 `
 
 const StyledImage = styled.img`
@@ -29,7 +33,7 @@ const StyledTitle = styled.h3`
   font-size: 18px;
   color: #ffffff;
   position: absolute;
-  top: 188px;
+  bottom: 20px;
   left: 20px;
 `
 

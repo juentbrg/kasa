@@ -9,12 +9,18 @@ const StyledContainer = styled.header`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  @media all and (min-width: 1100px) {
+    height: 68px;
+  }
 `
 
 const StyledLogo = styled.img`
   height: 43px;
   display: flex;
   align-self: center;
+  @media all and (min-width: 1100px) {
+    height: 64px;
+  }
 `
 
 const StyledLink = styled(Link)`
@@ -28,6 +34,13 @@ const StyledLink = styled(Link)`
   &.activeLink {
     text-decoration: underline;
   }
+  @media all and (min-width: 1100px) {
+    font-weight: 500;
+    font-size: 24px;
+    &:not(:last-child) {
+      margin-right: 57px;
+    }
+  }
 `
 
 const Header = () => {
@@ -35,9 +48,9 @@ const Header = () => {
 
   return (
     <StyledContainer>
-      <div>
+      <Link to="/">
         <StyledLogo src={logo} alt="logo-kasa" />
-      </div>
+      </Link>
       <nav>
         <StyledLink
           to="/"

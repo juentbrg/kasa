@@ -18,6 +18,10 @@ const Paragraph = styled.p`
   color: #ffffff;
   font-weight: 500;
   font-size: 12px;
+  @media all and (min-width: 1100px) {
+    font-size: 24px;
+    margin-top: 32px;
+  }
 `
 
 const Footer = () => {

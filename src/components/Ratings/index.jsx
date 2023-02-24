@@ -6,6 +6,13 @@ const Star = styled.img`
   width: 15px;
   height: 15px;
   margin-right: 5px;
+  @media all and (min-width: 1100px) {
+    height: 30px;
+    width: 30px;
+    margin-right: 0;
+    margin-left: 10px;
+    margin-top: 24px;
+  }
 `
 
 const Ratings = ({ rating }) => {

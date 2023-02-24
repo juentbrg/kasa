@@ -9,16 +9,31 @@ const Main = styled.main`
 `
 
 const StyledContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 22px 0;
+  @media all and (min-width: 1100px) {
+    background: #f7f7f7;
+    border-radius: 25px;
+    padding: 56px 50px 43px 50px;
+    margin-top: 43px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px 60px;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
 `
 
 const StyledCard = styled.div`
   display: flex;
   &:not(:last-child) {
     margin-bottom: 20px;
+  }
+  @media all and (min-width: 1100px) {
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
   }
 `
 

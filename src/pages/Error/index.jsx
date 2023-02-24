@@ -12,6 +12,10 @@ const StyledLink = styled(Link)`
   color: ${colors.primary};
   display: block;
   margin-top: 26vh;
+  font-size: 14px;
+  @media all and (min-width: 1100px) {
+    font-size: 18px;
+  }
 `
 
 const StyledTitle = styled.h1`
@@ -19,10 +23,17 @@ const StyledTitle = styled.h1`
   font-size: 96px;
   font-weight: 700;
   margin-top: 16vh;
+  @media all and (min-width: 1100px) {
+    font-size: 288px;
+  }
 `
 
 const StyledParagraph = styled.p`
   color: ${colors.primary};
+  font-size: 18px;
+  @media all and (min-width: 1100px) {
+    font-size: 36px;
+  }
 `
 
 const Error = () => {

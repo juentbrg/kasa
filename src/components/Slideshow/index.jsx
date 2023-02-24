@@ -9,6 +9,9 @@ const Container = styled.div`
   border-radius: 10px;
   position: relative;
   margin-top: 25px;
+  @media all and (min-width: 1100px) {
+    height: 415px;
+  }
 `
 
 const Slides = styled.div`
@@ -28,6 +31,11 @@ const ArrowLeft = styled.img`
   transform: translateY(-50%);
   left: 5px;
   cursor: pointer;
+  @media all and (min-width: 1100px) {
+    width: 47px;
+    height: 80px;
+    left: 24px;
+  }
 `
 const ArrowRight = styled.img`
   height: 20px;
@@ -37,6 +45,11 @@ const ArrowRight = styled.img`
   transform: translateY(-50%);
   right: 5px;
   cursor: pointer;
+  @media all and (min-width: 1100px) {
+    width: 47px;
+    height: 80px;
+    right: 24px;
+  }
 `
 
 const Bullets = styled.div`

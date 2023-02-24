@@ -10,6 +10,11 @@ const StyledBanner = styled.div`
   border-radius: 10px;
   position: relative;
   ${(props) => props.About && `height: 223px;`}
+  @media all and (min-width: 1100px) {
+    height: 223px;
+    text-align: center;
+    margin-top: 60px;
+  }
 `
 
 const StyledImage = styled.img`
@@ -30,6 +35,13 @@ const StyledTitle = styled.h1`
   top: 50%;
   left: 16px;
   transform: translateY(-50%);
+  @media all and (min-width: 1100px) {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 500;
+    font-size: 48px;
+    max-width: 100%;
+  }
 `
 
 const Banner = () => {

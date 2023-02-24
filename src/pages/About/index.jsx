@@ -5,10 +5,17 @@ import Footer from '../../components/Footer'
 
 const Main = styled.main`
   min-height: calc(100vh - 269.5px);
+  @media all and (min-width: 1100px) {
+    padding-bottom: 100px;
+  }
 `
 
 const StyledContainer = styled.div`
   margin: 19px 0;
+  @media all and (min-width: 1100px) {
+    margin: 31px 0;
+    padding: 0 100px;
+  }
 `
 
 const StyledCollapseContainer = styled.div`

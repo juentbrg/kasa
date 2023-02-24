@@ -17,6 +17,11 @@ body {
   font-family: 'Montserrat', sans-serif;
   padding: 20px 20px 0 20px;
 }
+@media all and (min-width: 1100px) {
+  body{
+    padding: 40px 100px 0px 100px;
+  }
+}
 `
 
 const App = () => {

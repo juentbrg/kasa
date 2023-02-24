@@ -10,6 +10,9 @@ import Footer from '../../components/Footer'
 
 const Main = styled.main`
   min-height: calc(100vh - 274.5px);
+  @media all and (min-width: 1100px) {
+    padding-bottom: 100px;
+  }
 `
 
 const Section = styled.section`
@@ -22,6 +25,10 @@ const Title = styled.h1`
   font-weight: 500;
   font-size: 18px;
   margin-top: 15px;
+  @media all and (min-width: 1100px) {
+    font-size: 36px;
+    margin-top: 30px;
+  }
 `
 
 const Location = styled.p`
@@ -29,10 +36,16 @@ const Location = styled.p`
   font-weight: 500;
   font-size: 14px;
   margin-top: 5px;
+  @media all and (min-width: 1100px) {
+    font-size: 18px;
+  }
 `
 const TagsContainer = styled.div`
   margin-top: 10px;
   display: flex;
+  @media all and (min-width: 1100px) {
+    margin-top: 20px;
+  }
 `
 
 const Tags = styled.div`
@@ -48,6 +61,12 @@ const Tags = styled.div`
   &:not(:last-child) {
     margin-right: 10px;
   }
+  @media all and (min-width: 1100px) {
+    width: 115px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+  }
 `
 
 const StarAndUser = styled.div`
@@ -57,6 +76,10 @@ const StarAndUser = styled.div`
   display: flex;
   flex-direction: raw;
   justify-content: space-between;
+  @media all and (min-width: 1100px) {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
 `
 
 const User = styled.div`
@@ -77,6 +100,10 @@ const UserName = styled.p`
   font-size: 12px;
   margin-right: 10.5px;
   white-space: pre-wrap;
+  line-height: 142.6%;
+  @media all and (min-width: 1100px) {
+    font-size: 18px;
+  }
 `
 
 const HostName = ({ name }) => {
@@ -93,6 +120,10 @@ const UserPic = styled.img`
   height: 32px;
   width: 32px;
   border-radius: 50%;
+  @media all and (min-width: 1100px) {
+    width: 64px;
+    height: 64px;
+  }
 `
 
 const CollapseContainer = styled.div`
