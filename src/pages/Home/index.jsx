@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <div>
       <Main>
-        <Banner />
+        <Banner location={'homePage'} />
         <StyledContainer>
           {accommodationList.map(({ id, cover, title }) => (
             <StyledCard key={id}>

@@ -55,7 +55,7 @@ const About = () => {
   return (
     <div>
       <Main>
-        <Banner />
+        <Banner location={'aboutPage'} />
         <StyledContainer>
           {information.map(({ id, title, description }) => (
             <StyledCollapseContainer key={id}>

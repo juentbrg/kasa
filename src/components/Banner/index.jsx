@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { useLocation } from 'react-router-dom'
 import homeCover from '../../assets/home_cover.png'
 import aboutCover from '../../assets/about_cover.png'
 
@@ -9,7 +8,9 @@ const StyledBanner = styled.div`
   margin-top: 20px;
   border-radius: 10px;
   position: relative;
-  ${(props) => props.About && `height: 223px;`}
+  &.About {
+    height: 223px;
+  }
   @media all and (min-width: 1100px) {
     height: 223px;
     text-align: center;
@@ -23,7 +24,9 @@ const StyledImage = styled.img`
   object-fit: cover;
   border-radius: 10px;
   filter: brightness(0.7);
-  ${(props) => props.About && `height: 223px;`}
+  &.About {
+    height: 223px;
+  }
 `
 
 const StyledTitle = styled.h1`
@@ -44,17 +47,17 @@ const StyledTitle = styled.h1`
   }
 `
 
-const Banner = () => {
-  const location = useLocation()
-  const homePage = location.pathname === '/'
-
+const Banner = ({ location }) => {
   return (
-    <StyledBanner About={!homePage}>
+    <StyledBanner className={location === 'aboutPage' ? 'About' : ''}>
       <StyledImage
-        src={homePage ? homeCover : aboutCover}
-        alt={homePage ? 'home-cover' : 'about-cover'}
+        className={location === 'aboutPage' ? 'About' : ''}
+        src={location === 'homePage' ? homeCover : aboutCover}
+        alt={location === 'homePage' ? 'home-cover' : 'about-cover'}
       />
-      {homePage && <StyledTitle>Chez vous, partout et ailleurs</StyledTitle>}
+      {location === 'homePage' && (
+        <StyledTitle>Chez vous, partout et ailleurs</StyledTitle>
+      )}
     </StyledBanner>
   )
 }
