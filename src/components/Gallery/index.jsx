@@ -39,7 +39,7 @@ const StyledTitle = styled.h3`
 
 const Gallery = ({ id, cover, title }) => {
   return (
-    <StyledContainer to={id ? `/accommodation/${id}` : '/'}>
+    <StyledContainer to={`/accommodation/${id}`}>
       <StyledImage src={cover} alt={`${title} cover`} />
       <StyledTitle>{title}</StyledTitle>
     </StyledContainer>

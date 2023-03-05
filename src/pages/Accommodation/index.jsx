@@ -3,6 +3,9 @@ import { useEffect } from 'react'
 import Slideshow from '../../components/Slideshow'
 import Ratings from '../../components/Ratings'
 import Collapse from '../../components/Collapse'
+import HostName from '../../components/HostName'
+import Tags from '../../components/Tags'
+import Equipments from '../../components/CollapseList'
 import accommodationList from '../../datas/accommodationList'
 import colors from '../../utils/colors'
 import styled from 'styled-components'
@@ -17,7 +20,7 @@ const Main = styled.main`
 
 const Section = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-direction: column;equipments
 `
 
 const Title = styled.h1`
@@ -38,34 +41,6 @@ const Location = styled.p`
   margin-top: 5px;
   @media all and (min-width: 1100px) {
     font-size: 18px;
-  }
-`
-const TagsContainer = styled.div`
-  margin-top: 10px;
-  display: flex;
-  @media all and (min-width: 1100px) {
-    margin-top: 20px;
-  }
-`
-
-const Tags = styled.div`
-  background-color: ${colors.primary};
-  border-radius: 5px;
-  width: 84px;
-  height: 18px;
-  line-height: 18px;
-  text-align: center;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 10px;
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
-  @media all and (min-width: 1100px) {
-    width: 115px;
-    height: 25px;
-    line-height: 25px;
-    font-size: 14px;
   }
 `
 
@@ -94,28 +69,6 @@ const UserNameContainer = styled.div`
   text-align: right;
 `
 
-const UserName = styled.p`
-  color: ${colors.primary};
-  font-weight: 500;
-  font-size: 12px;
-  margin-right: 10.5px;
-  white-space: pre-wrap;
-  line-height: 142.6%;
-  @media all and (min-width: 1100px) {
-    font-size: 18px;
-  }
-`
-
-const HostName = ({ name }) => {
-  const [firstName, lastName] = name.split(' ')
-  return (
-    <>
-      <UserName>{firstName}</UserName>
-      <UserName>{lastName}</UserName>
-    </>
-  )
-}
-
 const UserPic = styled.img`
   height: 32px;
   width: 32px;
@@ -134,24 +87,6 @@ const CollapseContainer = styled.div`
     margin-bottom: 20px;
   }
 `
-
-const EquipmentsListContainer = styled.ul`
-  line-height: 142.6%;
-`
-
-const EquipmentsList = styled.li`
-  list-style-type: none;
-`
-
-const Equipments = ({ equipments }) => {
-  return (
-    <EquipmentsListContainer>
-      {equipments.map((e) => (
-        <EquipmentsList key={e}>{e}</EquipmentsList>
-      ))}
-    </EquipmentsListContainer>
-  )
-}
 
 const Accommodation = () => {
   let accommodationId = useParams().id
@@ -176,11 +111,7 @@ const Accommodation = () => {
           <Section>
             <Title>{accommodation.title}</Title>
             <Location>{accommodation.location}</Location>
-            <TagsContainer>
-              {accommodation.tags.map((tag) => (
-                <Tags key={tag}>{tag}</Tags>
-              ))}
-            </TagsContainer>
+            <Tags name={accommodation.tags} />
             <StarAndUser>
               <Ratings rating={accommodation.rating} />
               <User>
@@ -200,9 +131,7 @@ const Accommodation = () => {
               />
               <Collapse
                 title="Équipements"
-                description={
-                  <Equipments equipments={accommodation.equipments} />
-                }
+                description={<Equipments list={accommodation.equipments} />}
               />
             </CollapseContainer>
           </Section>

@@ -53,7 +53,6 @@ const Banner = () => {
       <StyledImage
         src={homePage ? homeCover : aboutCover}
         alt={homePage ? 'home-cover' : 'about-cover'}
-        About={!homePage}
       />
       {homePage && <StyledTitle>Chez vous, partout et ailleurs</StyledTitle>}
     </StyledBanner>
